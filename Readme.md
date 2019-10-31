@@ -1,0 +1,2 @@
+#Webpack React Redux template
+##

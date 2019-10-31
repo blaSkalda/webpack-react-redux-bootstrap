@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testExecutions version="1">
+  <file path="C:\Users\mskalicky\source\repos\Wilies\front-end\src\services\messages.spec.js">
+    <testCase name="actions getMessages should dispatch start and fail with error" duration="5"/>
+    <testCase name="actions getMessages should dispatch start and fail with error" duration="1"/>
+    <testCase name="actions getMessages should dispatch start and success with dao payload" duration="1"/>
+    <testCase name="actions getMessages should dispatch start and success with dao payload with profile Id stored in localStorage" duration="1"/>
+    <testCase name="MessageReducer should return original state when no action type matches" duration="1"/>
+    <testCase name="MessageReducer sets the DAO_START and it is fetching the dao" duration="0"/>
+    <testCase name="MessageReducer sets the DAO_SUCCESS and response payload is as expected" duration="1"/>
+    <testCase name="MessageReducer sets the DAO_FAILURE and response with error as expected" duration="0"/>
+  </file>
+  <file path="C:\Users\mskalicky\source\repos\Wilies\front-end\src\home\home.spec.js">
+    <testCase name="&lt;Home /&gt; renders &lt;Home /&gt;" duration="9"/>
+    <testCase name="&lt;Home /&gt; renders &lt;Home /&gt; component and triggers get messages" duration="6"/>
+    <testCase name="&lt;Home /&gt; renders &lt;Home /&gt; component and triggers get message" duration="1"/>
+  </file>
+  <file path="C:\Users\mskalicky\source\repos\Wilies\front-end\src\routes.spec.js">
+    <testCase name="Routes  should match default route to home page and not fetching data" duration="48"/>
+    <testCase name="Routes  should match default route to home page with not authenticated user" duration="8"/>
+  </file>
+</testExecutions>
