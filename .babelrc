@@ -1,0 +1,42 @@
+{
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "modules": false,
+        "targets": {
+          "browsers": [
+            "last 2 versions",
+            "ie >= 11"
+          ]
+        }
+      }
+    ],
+    "@babel/preset-react"
+  ],
+  "plugins": [
+    "transform-class-properties"
+  ],
+  "env": {
+    "test": {
+      "presets": [
+        [
+          "@babel/preset-env",
+          {
+            "modules": "commonjs",
+            "targets": {
+              "browsers": [
+                "last 2 versions",
+                "ie >= 11"
+              ]
+            }
+          }
+        ],
+        "@babel/preset-react"
+      ],
+      "plugins": [
+        "transform-class-properties"
+      ],
+    }
+  }
+}
