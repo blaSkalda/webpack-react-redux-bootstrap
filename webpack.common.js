@@ -1,17 +1,16 @@
-const { CleanWebpackPlugin } = require("clean-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const StyleLintPlugin = require("stylelint-webpack-plugin");
-const webpack = require("webpack");
-const { InjectManifest } = require("workbox-webpack-plugin");
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const StyleLintPlugin = require('stylelint-webpack-plugin');
+const { InjectManifest } = require('workbox-webpack-plugin');
 
 exports.common = ({ packMode, devMode, PATHS }) => ({
   mode: packMode,
   entry: {
-    app: PATHS.app
+    app: PATHS.app,
   },
   output: {
     path: PATHS.build,
-    filename: "[name]-[hash].js"
+    filename: '[name]-[hash].js',
   },
   module: {
     rules: [
@@ -25,27 +24,27 @@ exports.common = ({ packMode, devMode, PATHS }) => ({
         ],
       },
       {
-        test: /\.(png|svg|jpg|gif)$/,
+        test: /\.(png|svg|jpg|gif|ico)$/,
         exclude: [/node_modules/, /vendor/],
-        use: ["file-loader"]
+        use: ['file-loader'],
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/,
         exclude: [/node_modules/, /vendor/],
-        use: ["file-loader"]
+        use: ['file-loader'],
       },
       {
         test: /\.js$/,
         exclude: [/node_modules/, /vendor/],
-        enforce: "pre",
-        use: "eslint-loader"
+        enforce: 'pre',
+        use: 'eslint-loader',
       },
       {
         test: /\.js$/,
         exclude: [/node_modules/, /vendor/],
-        use: "babel-loader"
-      }
-    ]
+        use: 'babel-loader',
+      },
+    ],
   },
   plugins: [
     new CleanWebpackPlugin({
@@ -56,19 +55,15 @@ exports.common = ({ packMode, devMode, PATHS }) => ({
     new MiniCssExtractPlugin({
       // Options similar to the same options in webpackOptions.output
       // both options are optional
-      filename: "[name].css",
-      chunkFilename: "[id].css"
+      filename: '[name].css',
+      chunkFilename: '[id].css',
     }),
     new StyleLintPlugin({
-      failOnError: false
-    }),
-    new webpack.ProvidePlugin({
-      $: "jquery",
-      jQuery: "jquery"
+      failOnError: false,
     }),
     new InjectManifest({
       importWorkboxFrom: 'disabled',
-      swSrc: "./src/service-worker.js"
-    })
-  ]
+      swSrc: './src/service-worker.js',
+    }),
+  ],
 });

@@ -1,0 +1,10 @@
+{
+  "name": "React example",
+  "short_name": "reactexample",
+  "icons": [],
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#130D4B",
+  "theme_color": "#130D4B"
+}

@@ -63,7 +63,7 @@ describe('actions', () => {
       });
     });
 
-    it('should dispatch start and success with dao payload', (done) => {
+    it('should dispatch start and success with payload', (done) => {
       global.fetch = jest.fn().mockImplementationOnce(() => mockFetchPromise);
 
       store.dispatch(getMessages()).then(() => {
@@ -82,7 +82,7 @@ describe('actions', () => {
       });
     });
 
-    it('should dispatch start and success with dao payload with profile Id stored in localStorage', (done) => {
+    it('should dispatch start and success with payload with profile Id stored in localStorage', (done) => {
       global.fetch = jest.fn().mockImplementationOnce(() => mockFetchPromise);
 
       store.dispatch(getMessage(1)).then(() => {
@@ -110,14 +110,14 @@ describe('MessageReducer', () => {
     expect(result).toBe(defaultState);
   });
 
-  it('sets the DAO_START and it is fetching the dao', () => {
+  it('sets the FETCH_START and it is fetching the', () => {
     const oldState = {};
     const newState = MessageReducer(oldState, { type: FETCH_START });
 
     expect(newState.fetching).toEqual(true);
   });
 
-  it('sets the DAO_SUCCESS and response payload is as expected', () => {
+  it('sets the FETCH_SUCCESS and response payload is as expected', () => {
     const action = {
       type: FETCH_SUCCESS,
       payload: [1],
@@ -128,7 +128,7 @@ describe('MessageReducer', () => {
     expect(newState.data).toEqual([1]);
   });
 
-  it('sets the DAO_FAILURE and response with error as expected', () => {
+  it('sets the FETCH_FAILURE and response with error as expected', () => {
     const action = {
       type: FETCH_FAILURE,
       payload: { error: 'error' },
