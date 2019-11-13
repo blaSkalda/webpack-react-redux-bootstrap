@@ -1,9 +1,9 @@
 const merge = require('webpack-merge');
 const webpack = require('webpack');
-const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 const path = require('path');
 const url = require('url');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 const common = require('./webpack.common');
 
 const devpaths = {
@@ -43,29 +43,15 @@ devServer = () => ({
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NamedModulesPlugin(),
+    new HtmlWebpackPlugin({
+      template: 'index.html',
+      favicon: 'favicon.ico',
+    }),
+    new CopyPlugin([
+      { from: 'manifest.json', to: devpaths.build },
+    ]),
   ],
 });
-
-
-browserSync = () => {
-  const hostName = 'localhost';
-  return BrowserSyncPlugin ? {
-    plugins: [
-      new HtmlWebpackPlugin({
-        template: 'index.html',
-      }),
-      new BrowserSyncPlugin({
-        logLeve: 'debug',
-        host: hostName,
-        port: 3000,
-        proxy: 'http://localhost:8080/',
-      },
-      {
-        reload: false,
-      }),
-    ],
-  } : null;
-};
 
 devTool = (devtool) => ({
   devtool,
@@ -78,5 +64,4 @@ exports.dev = () => merge(
   },
   common.common({ packMode: 'development', devMode: true, PATHS: devpaths }),
   devServer(),
-  browserSync(),
 );
