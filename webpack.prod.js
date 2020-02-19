@@ -6,8 +6,7 @@ const common = require('./webpack.common');
 
 const prodpaths = {
   app: path.join(__dirname, 'src', 'app'),
-  mvcapproot: path.join(__dirname, '../PRSforMusic.MobileApp'),
-  build: path.join(__dirname, '../PRSforMusic.MobileApp', 'wwwroot'),
+  build: path.join(__dirname, '../', 'wwwroot'),
   public: path.join(__dirname, 'public'),
 };
 

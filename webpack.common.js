@@ -49,7 +49,7 @@ exports.common = ({ packMode, devMode, PATHS }) => ({
   plugins: [
     new CleanWebpackPlugin({
       dry: false,
-      cleanAfterEveryBuildPatterns: [PATHS.mvcapproot],
+      cleanAfterEveryBuildPatterns: [PATHS.build],
       dangerouslyAllowCleanPatternsOutsideProject: true,
     }),
     new MiniCssExtractPlugin({

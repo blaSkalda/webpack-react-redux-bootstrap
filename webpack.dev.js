@@ -8,7 +8,6 @@ const common = require('./webpack.common');
 
 const devpaths = {
   app: path.join(__dirname, 'src', 'app'),
-  mvcapproot: path.join(__dirname, 'public', 'build'),
   build: path.join(__dirname, 'public', 'dist'),
   public: path.join(__dirname, 'public'),
 };
